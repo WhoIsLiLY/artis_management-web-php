@@ -33,7 +33,7 @@ A fully working website that allows you to reorganize artist data and schedule. 
     ```bash
     Run it through xampp or 'php -S localhost:3000'
     ```
-5. Run mysql and apache server:
+5. Active sodium extension:
     - Active the sodium extension from your php.ini
     - Add sodium in setting.json (you can access it from ctrl+shift+P in vs code)
     ```bash
