@@ -1,8 +1,8 @@
 # Artist Management Website
 
-## A fully working website that allows you to reorganize artist data and schedule. This website have 3 different roles of access (Admin, Manager, Artist).
+## 
 
-A brief description of what your project does.
+A fully working website that allows you to reorganize artist data and schedule. This website have 3 different roles of access (Admin, Manager, Artist).
 
 ## Features
 
