@@ -3,7 +3,7 @@ A fully working website that allows you to reorganize artist data and schedule. 
 
 ## Features
 
-- User data are fully encrypted and hashed
+- User data are fully encrypted (sodium) and hashed (SHA)
 - Login using OTP (the otp code also encrypted)
 - CRUD for artists and managers data
 
@@ -33,8 +33,31 @@ A fully working website that allows you to reorganize artist data and schedule. 
     ```bash
     Run it through xampp or 'php -S localhost:3000'
     ```
-
-6. Access the /public/index.html?type=optional.
+5. Run mysql and apache server:
+    - Active the sodium extension from your php.ini
+    - Add sodium in setting.json (you can access it from ctrl+shift+P in vs code)
+    ```bash
+    {
+    "code-runner.runInTerminal": true,
+    "window.zoomLevel": 1,
+    "code-runner.ignoreSelection": true,
+    "tabnine.experimentalAutoImports": true,
+    "chatgpt.lang": "en",
+    "workbench.iconTheme": "material-icon-theme",
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "php.stubs": [
+        "*",
+        "pcntl",
+        "sodium",
+        "apcu",
+        "gd"
+    ],
+    "prisma.showPrismaDataPlatformNotification": false
+}
+    ```
+7. Access the /public/index.html?type=optional.
     ```
     optional: artist/manager/admin
     depends on your need
