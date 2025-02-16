@@ -107,11 +107,14 @@ A fully functional web application that manages artist data and schedules, with 
     http://localhost:3000/public/index.php?type=admin
     ```
     
-8. **Login Credencials**
+8. **Login Credencials**:
    For login information, you can find it in .sql file. In there, change the email for member, manager, and admin with your email in liking (Because you will need your personal email for OTP authentication). The password will always be "yourpassword". You cannot inject this directly because it's encrypted and can be only opened using the key in .sql file.
 
-9. **OTP Auth**
+9. **OTP Auth**:
    You can turn off OTP Auth in profile setting for each account.
+
+10. **Contract Content and Manager's Signature**:
+   You can customize the contract pdf content at /src/utils/print/generate_pdf.php. You can also change the signature at /src/utils/print/tt.jpg.
 
 ## Project Purpose
 
