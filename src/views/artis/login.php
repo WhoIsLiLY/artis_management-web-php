@@ -69,26 +69,54 @@
     <!-- Button to toggle the UI -->
     <!--button id="toggleButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">Toggle UI</!--button-->
     <!-- Overlay -->
-    <nav class="bg-gray-800 p-3 sticky top-0">
-        <div class="container mx-auto flex items-center">
+    <nav class="fixed top-0 left-0 w-full bg-gray-800/90 backdrop-blur-md p-3 z-50 shadow-md">
+        <div class="container mx-auto flex items-center px-6">
+            <!-- Logo -->
             <div class="flex items-center">
                 <img class="h-8 w-auto" src="./assets/other/logo.png" alt="Logo">
-                <span class="text-white ml-3">CelebSync</span>
-            </div> 
-            <button id="toggleButton" class="ml-auto bg-transparent hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Login</button>
+                <span class="text-white ml-3 text-lg font-semibold">CelebSync</span>
+            </div>
+
+            <!-- Login Button -->
+            <button id="toggleButton" class="ml-auto bg-transparent hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
+                Login
+            </button>
         </div>
     </nav>
 
-    <div class="flex flex-col justify-center h-screen items-center px-5 md:px-0">
-        <div class="flex flex-col md:flex-row justify-between items-center w-full px-10">
-            <div>
-                <h4 class="text-5xl font-semibold leading-normal">CelebSync</h4>
-                <p>
-                    A web-based application designed specifically <br>to assist managers in managing the careers 
-                    and schedules of artists.
+
+    <div class="relative flex flex-col justify-center h-screen items-center px-6 md:px-12 bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute w-72 h-72 bg-blue-400 opacity-30 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
+            <div class="absolute w-96 h-96 bg-purple-400 opacity-30 rounded-full blur-3xl bottom-10 right-10 animate-pulse"></div>
+            <div class="absolute w-48 h-48 bg-white opacity-20 rounded-full blur-2xl top-1/3 left-1/3"></div>
+        </div>
+
+        <!-- Main Card Container -->
+        <div class="relative flex flex-col md:flex-row items-center w-full max-w-5xl mx-auto bg-white/20 backdrop-blur-lg shadow-lg rounded-2xl p-8 md:p-12 space-y-8 md:space-y-0 md:space-x-12 border border-white/30">
+            <!-- Text Content -->
+            <div class="text-center md:text-left flex-1">
+                <h4 class="text-5xl font-extrabold text-white leading-tight drop-shadow-lg">CelebSync</h4>
+                <p class="mt-4 text-lg text-gray-200 drop-shadow">
+                    A web-based application designed to assist managers in managing the careers
+                    and schedules of artists efficiently.
                 </p>
+                <div class="mt-6 flex justify-center md:justify-start space-x-4">
+                    <button id="toggleButton2" class="bg-white/20 text-white px-6 py-3 rounded-lg font-semibold shadow-md backdrop-blur-sm border border-white/30 hover:bg-white/30 transition">
+                        Get Started
+                    </button>
+                    <button class="bg-white/10 text-gray-200 px-6 py-3 rounded-lg font-semibold shadow-md backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
+                        Learn More
+                    </button>
+                </div>
             </div>
-            <img src="./assets/other/v.png" alt="Your Image" class="w-64 h-64 md:ml-10">
+
+            <!-- Image -->
+            <div class="flex justify-center flex-1">
+                <img src="./assets/other/v.png" alt="Your Image"
+                    class="w-48 h-48 md:w-64 md:h-64 object-contain rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02]">
+            </div>
         </div>
     </div>
   
@@ -180,6 +208,9 @@
         });
         // Add click event listener to the toggle button
         $('#toggleButton').click(function() {
+            toggleUI();
+        });
+        $('#toggleButton2').click(function() {
             toggleUI();
         });
         $('#verification').click(function() {

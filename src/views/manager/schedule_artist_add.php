@@ -16,17 +16,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Contract</title>
+    <!-- TAILWIND-->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body>
+<body class="bg-gradient-to-br from-blue-600 to-purple-700">
     <?php
         // $email = $controller->getEmailById($id);
         // $artis = $controller->showContractArtistSide($email);
     ?>
 
     <div class="container mt-4">
-        <h2 class="text-center mt-3 mb-4">Available Schedule(s)</h2>
+        <h2 class="text-center text-white mt-3 mb-4">Available Schedule(s)</h2>
         <form action="" method="post">
             
             <?php

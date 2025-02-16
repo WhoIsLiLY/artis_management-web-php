@@ -34,15 +34,19 @@ A fully functional web application that manages artist data and schedules, with 
 ![Main Dashboard](docs/mainAdmin.png)
 
 ### Artist Management Interface for Admin
-![Artist Management](docs/admin1.png)
-![Artist Management](docs/admin2.png)
+![Schedule Management](docs/admin1.png)
+![Manager Management](docs/admin2.png)
 
 ### Main Dashboard for Manager
 ![Main Dashboard](docs/mainManager.png)
 
 ### Artist Management Interface for Manager
 ![Artist Management](docs/manager1.png)
-![Artist Management](docs/manager2.png)
+![Contracts Management](docs/manager2.png)
+![Contact List](docs/manager3.png)
+![Printed Contract PDF](docs/manager4.png)
+![Schedule Management](docs/manager5.png)
+![Schedule Assignment](docs/manager6.png)
 
 ### Main Dashboard for Member
 ![Main Dashboard](docs/mainMember.png)
@@ -98,13 +102,16 @@ A fully functional web application that manages artist data and schedules, with 
 7. **Access the Application**:
     Open the following URL in your browser, depending on the user type:
     ```
-    http://localhost:3000/public/index.php?type=artist
+    http://localhost:3000/public/index.php?type=artis
     http://localhost:3000/public/index.php?type=manager
     http://localhost:3000/public/index.php?type=admin
     ```
     
 8. **Login Credencials**
    For login information, you can find it in .sql file. In there, change the email for member, manager, and admin with your email in liking (Because you will need your personal email for OTP authentication). The password will always be "yourpassword". You cannot inject this directly because it's encrypted and can be only opened using the key in .sql file.
+
+9. **OTP Auth**
+   You can turn off OTP Auth in profile setting for each account.
 
 ## Project Purpose
 

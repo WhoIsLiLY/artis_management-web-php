@@ -100,7 +100,7 @@ require_once __DIR__ . '\\..\\..\\bootstrap.php';
             </div>
 
             <!-- Login Button -->
-            <button id="toggleButton" class="ml-auto bg-transparent hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition">
+            <button id="toggleButton" class="ml-auto bg-transparent hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">
                 Login
             </button>
         </div>

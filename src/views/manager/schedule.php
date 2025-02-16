@@ -15,38 +15,43 @@ session_start();
 
 <!--HEADER-->
 <?php require_once __DIR__ . "\\..\\layouts\\header.php"?>
-<?php require_once __DIR__ . "\\..\\layouts\\sidebar-manager.php"?>
 <!-- main-content -->
-  <div class="col-lg-10 pt-12">
-  <h1 class="text-center">Manage <?php echo $userController->getArtisNameById($_GET['id']);?> <br>Schedule</h1>
-  <?php echo "<button id='add-".$_GET['id']."' class='btn btn-success position-absolute top-0 end-0 mt-5 mr-4'>Add</button>";?>
-  <div class="table-responsive mt-3" style="height: 500px; overflow-y: auto;">
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>EventName</th> 
-          <th>Date</th>
-          <th>Location</th>
-          <th>Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <?php
-            foreach($data as $value){
-              echo "<tr>";
-              echo "<td>".$value['nama_acara']."</td>";
-              echo "<td>".$value['tanggal_waktu']."</td>";
-              echo "<td>".$value['lokasi']."</td>";
-              echo "<td>".$value['jenis_acara']."</td>";
-              echo "</tr>";
-            }
-            ?>
+<div class="col-lg-10 pt-12 px-4">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold text-white">
+      Manage <?= htmlspecialchars($userController->getArtisNameById($_GET['id'])); ?>'s Schedule
+    </h1>
+    <button id="add-<?= htmlspecialchars($_GET['id']); ?>" class="btn btn-success shadow-lg transition duration-300 hover:scale-105">
+      + Add
+    </button>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow-lg overflow-hidden">
+    <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+      <table class="table table-hover table-bordered table-striped text-center align-middle">
+        <thead class="bg-gradient-to-r from-indigo-500 to-purple-700 text-white">
+          <tr>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($data as $value): ?>
+            <tr class="hover:bg-gray-100 transition duration-200">
+              <td class="p-3 font-medium"> <?= htmlspecialchars($value['nama_acara']); ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['tanggal_waktu']); ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['lokasi']); ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['jenis_acara']); ?> </td>
             </tr>
-      </tbody>
-    </table>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </div>
-  </div>
+</div>
+
 </body>
 </html>
 

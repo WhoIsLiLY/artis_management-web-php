@@ -18,14 +18,17 @@ session_start();
 
 <!--HEADER-->
 <?php require_once __DIR__ . "\\..\\layouts\\header.php"?>
-<?php require_once __DIR__ . "\\..\\layouts\\sidebar-admin.php"?>
 <!-- main-content -->
-  <div class="col-lg-10 pt-12">
-  <h1 class="text-center">Manage Managers</h1>
-  <button id="add" class="btn btn-success position-absolute top-0 end-0 mt-5 mr-4">Add</button>
-  <div class="table-responsive mt-3" style="height: 500px; overflow-y: auto;">
-    <table class="table table-bordered table-striped">
-      <thead>
+<div class="col-lg-10 pt-12 px-4">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold text-white">Manage Managers</h1>
+    <button id="add" class="btn btn-success shadow-lg transition duration-300 hover:scale-105">+ Add Manager</button>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow-lg overflow-hidden">
+    <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+      <table class="table table-hover table-bordered table-striped text-center align-middle">
+        <thead class="bg-gradient-to-r from-indigo-500 to-purple-700 text-white">
         <tr>
           <th>Id</th>
           <th>Name</th>
@@ -33,31 +36,36 @@ session_start();
           <th>Gender</th>
           <th>City</th>
           <th>Email</th>
-          <th></th>
-          <th></th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <?php
-            foreach($data as $value){
-              echo "<tr>";
-              echo "<td>".$value['id']."</td>";
-              echo "<td>".$value['nama_manager']."</td>";
-              echo "<td>".$value['tanggal_lahir']."</td>";
-              echo "<td>".$value['gender']."</td>";
-              echo "<td>".$value['asal_kota']."</td>";
-              echo "<td>".$value['email']."</td>";
-              echo "<td><button id='btn-update-".$value['id']."' class='btn btn-warning position-relative top-0 end-0'>update</button></td>";
-              echo "<td><button id='btn-delete-".$value['id']."' class='btn btn-danger position-relative top-0 end-0'>delete</button></td>";
-              echo "</tr>";
-            }
-            ?>
+        </thead>
+        <tbody>
+          <?php foreach ($data as $value): ?>
+            <tr class="hover:bg-gray-100 transition duration-200">
+              <td class="p-3 font-medium"> <?= $value['id']; ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['nama_manager']); ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['tanggal_lahir']); ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['gender']); ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['asal_kota']); ?> </td>
+              <td class="p-3"> <?= htmlspecialchars($value['email']); ?> </td>
+              <td class="p-3">
+                <button class="btn btn-warning position-relative top-0 end-0" id="btn-update-<?= $value['id']; ?>">
+                  Update
+                </button>
+              </td>
+              <td class="p-3">
+                <button class="btn btn-danger shadow-sm transition duration-300 hover:scale-105" id="btn-delete-<?= $value['id']; ?>">
+                  Delete
+                </button>
+              </td>
             </tr>
-      </tbody>
-    </table>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </div>
-  </div>
+</div>
 </body>
 </html>
 

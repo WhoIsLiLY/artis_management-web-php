@@ -1,6 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        function showSuccessMessageAndRedirect() {
+<script>
+    function showSuccessMessageAndRedirect() {
         Swal.fire({
             icon: 'success',
             title: 'Success!',
@@ -10,43 +10,45 @@
         }).then(function() {
             // Pindahkan halaman setelah beberapa detik
             setTimeout(function() {
-            window.location.href = 'schedule.php'; // Ganti dengan URL tujuan Anda
+                window.location.href = 'schedule.php'; // Ganti dengan URL tujuan Anda
             }, 1); // Waktu tunda (dalam milidetik)
         });
-        }
-
-    </script>
+    }
+</script>
 <?php
-    session_start();
-    require_once __DIR__ . "\\..\\..\\bootstrap.php";
-    if(isset($_COOKIE["token"])){
-        $middleware->checkAdminTokenValidity($_COOKIE["token"]);
-    }else{
-        header("Location: /src/views/401.php");
-    }
-    if(isset($_POST["submit"])){
-        //print_r($_POST["data"]);
-        $data = $_POST["data"];
-        //echo $_SESSION["name_enc"];
-        $userController->createSchedule($_POST["data"]);
-        echo "<br>";
-        echo '<script>';
-        echo 'showSuccessMessageAndRedirect();'; // Panggil fungsi JavaScript
-        echo '</script>';
-        //header("Location: /src/views/admin/workspace.php");
-    }
+session_start();
+require_once __DIR__ . "\\..\\..\\bootstrap.php";
+if (isset($_COOKIE["token"])) {
+    $middleware->checkAdminTokenValidity($_COOKIE["token"]);
+} else {
+    header("Location: /src/views/401.php");
+}
+if (isset($_POST["submit"])) {
+    //print_r($_POST["data"]);
+    $data = $_POST["data"];
+    //echo $_SESSION["name_enc"];
+    $userController->createSchedule($_POST["data"]);
+    echo "<br>";
+    echo '<script>';
+    echo 'showSuccessMessageAndRedirect();'; // Panggil fungsi JavaScript
+    echo '</script>';
+    //header("Location: /src/views/admin/workspace.php");
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Schedule</title>
+    <!-- TAILWIND-->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body>
+<body class="bg-gradient-to-br from-blue-600 to-purple-700">
     <div class="container mt-4">
         <h2 class="text-center pt-4">Add Schedule</h2>
         <form action="" method="post">
