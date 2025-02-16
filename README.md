@@ -60,14 +60,18 @@ A fully functional web application that manages artist data and schedules, with 
 ![Main Dashboard](docs/mainMember.png)
 
 ### Artist Management Interface for Member
-![Artist Management](docs/member1.png)
-![Artist Management](docs/member2.png)
+#### Personal Schedule Management
+![Personal Schedule Management](docs/member1.png)
+#### Personal Contract Management
+![Personal Contract Management](docs/member2.png)
+#### Contact List
+![Contact List](docs/member3.png)
 
 ## Installation
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/WhoIsLiLY/artis_management-web-php.git
     ```
 
 2. **Navigate to the Project Directory**:
