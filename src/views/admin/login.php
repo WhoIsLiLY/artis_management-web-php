@@ -1,13 +1,14 @@
 <?php
-    session_start();
-    if(isset($_SESSION["role"])){
-        unset($_SESSION["role"]);
-    }
-    $_SESSION["role"] = "admin";
-    require_once __DIR__ . '\\..\\..\\bootstrap.php';
+session_start();
+if (isset($_SESSION["role"])) {
+    unset($_SESSION["role"]);
+}
+$_SESSION["role"] = "admin";
+require_once __DIR__ . '\\..\\..\\bootstrap.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,76 +23,126 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.25); /* Quarter black */
+            background-color: rgba(0, 0, 0, 0.25);
+            /* Quarter black */
             z-index: 9999;
-            display: none; /* Initially hidden */
+            display: none;
+            /* Initially hidden */
         }
+
         /* Hide login UI by default */
         #loginUI {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 10000; /* Higher z-index than overlay */
-            display: none; /* Initially hidden */
-  
-            width: 80%; /* Adjust the width as needed */
-            height: 80%;
-            max-width: 600px; /* Optional: Set maximum width for larger screens */
-            margin: 0 auto; /* Center the element horizontally */
+            z-index: 10000;
+            /* Higher z-index than overlay */
+            display: none;
+            /* Initially hidden */
 
-            background-color: #fff; /* Background color */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-    
+            width: 80%;
+            /* Adjust the width as needed */
+            height: 80%;
+            max-width: 600px;
+            /* Optional: Set maximum width for larger screens */
+            margin: 0 auto;
+            /* Center the element horizontally */
+
+            background-color: #fff;
+            /* Background color */
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Optional: Add shadow */
+
         }
+
         #otpUI {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 10000; /* Higher z-index than overlay */
-            display: none; /* Initially hidden */
-  
-            width: 80%; /* Adjust the width as needed */
-            height: 80%;
-            max-width: 600px; /* Optional: Set maximum width for larger screens */
-            margin: 0 auto; /* Center the element horizontally */
+            z-index: 10000;
+            /* Higher z-index than overlay */
+            display: none;
+            /* Initially hidden */
 
-            background-color: #fff; /* Background color */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-    
+            width: 80%;
+            /* Adjust the width as needed */
+            height: 80%;
+            max-width: 600px;
+            /* Optional: Set maximum width for larger screens */
+            margin: 0 auto;
+            /* Center the element horizontally */
+
+            background-color: #fff;
+            /* Background color */
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Optional: Add shadow */
+
         }
     </style>
 </head>
+
 <body>
     <!-- Button to toggle the UI -->
     <!--button id="toggleButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">Toggle UI</!--button-->
     <!-- Overlay -->
-    <nav class="bg-gray-800 p-3 sticky top-0">
-        <div class="container mx-auto flex items-center">
+    <nav class="fixed top-0 left-0 w-full bg-gray-800/90 backdrop-blur-md p-3 z-50 shadow-md">
+        <div class="container mx-auto flex items-center px-6">
+            <!-- Logo -->
             <div class="flex items-center">
                 <img class="h-8 w-auto" src="./assets/other/logo.png" alt="Logo">
-                <span class="text-white ml-3">CelebSync</span>
-            </div> 
-            <button id="toggleButton" class="ml-auto bg-transparent hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Login</button>
+                <span class="text-white ml-3 text-lg font-semibold">CelebSync</span>
+            </div>
+
+            <!-- Login Button -->
+            <button id="toggleButton" class="ml-auto bg-transparent hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition">
+                Login
+            </button>
         </div>
     </nav>
 
-    <div class="flex flex-col justify-center h-screen items-center px-5 md:px-0">
-        <div class="flex flex-col md:flex-row justify-between items-center w-full px-10">
-            <div>
-                <h4 class="text-5xl font-semibold leading-normal">CelebSync</h4>
-                <p>
-                    A web-based application designed specifically <br>to assist managers in managing the careers 
-                    and schedules of artists.
+
+    <div class="relative flex flex-col justify-center h-screen items-center px-6 md:px-12 bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute w-72 h-72 bg-blue-400 opacity-30 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
+            <div class="absolute w-96 h-96 bg-purple-400 opacity-30 rounded-full blur-3xl bottom-10 right-10 animate-pulse"></div>
+            <div class="absolute w-48 h-48 bg-white opacity-20 rounded-full blur-2xl top-1/3 left-1/3"></div>
+        </div>
+
+        <!-- Main Card Container -->
+        <div class="relative flex flex-col md:flex-row items-center w-full max-w-5xl mx-auto bg-white/20 backdrop-blur-lg shadow-lg rounded-2xl p-8 md:p-12 space-y-8 md:space-y-0 md:space-x-12 border border-white/30">
+            <!-- Text Content -->
+            <div class="text-center md:text-left flex-1">
+                <h4 class="text-5xl font-extrabold text-white leading-tight drop-shadow-lg">CelebSync</h4>
+                <p class="mt-4 text-lg text-gray-200 drop-shadow">
+                    A web-based application designed to assist managers in managing the careers
+                    and schedules of artists efficiently.
                 </p>
+                <div class="mt-6 flex justify-center md:justify-start space-x-4">
+                    <button id="toggleButton2" class="bg-white/20 text-white px-6 py-3 rounded-lg font-semibold shadow-md backdrop-blur-sm border border-white/30 hover:bg-white/30 transition">
+                        Get Started
+                    </button>
+                    <button class="bg-white/10 text-gray-200 px-6 py-3 rounded-lg font-semibold shadow-md backdrop-blur-sm border border-white/20 hover:bg-white/20 transition">
+                        Learn More
+                    </button>
+                </div>
             </div>
-            <img src="./assets/other/v.png" alt="Your Image" class="w-64 h-64 md:ml-10">
+
+            <!-- Image -->
+            <div class="flex justify-center flex-1">
+                <img src="./assets/other/v.png" alt="Your Image"
+                    class="w-48 h-48 md:w-64 md:h-64 object-contain rounded-lg shadow-xl transition-transform duration-300 hover:scale-[1.02]">
+            </div>
         </div>
     </div>
-  
+
+
     <div id="overlay" class="overlay"></div>
     <div id="loginUI" class="flex justify-center items-center min-h-[40vh] mx-auto max-w-md">
         <button onclick="emptyField()" id="backButton" style="position: absolute; top: 10px; left: 10px;" class="border border-gray-300 rounded-lg px-2">X</button>
@@ -118,45 +169,45 @@
                         <div class="mt-2">
                             <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
-                        
+
                     </div>
                     <div>
                         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-                    </div>  
+                    </div>
                 </form>
                 <p class="mt-10 text-center text-sm text-gray-500"></p>
             </div>
-        <!--button id="backButton" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Back to Login Page</!--button-->
-        </div> 
+            <!--button id="backButton" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Back to Login Page</!--button-->
+        </div>
     </div>
-</div>
-<div id="otpUI" class="flex justify-center items-center min-h-[40vh] mx-auto max-w-md" style="display: none;">
-<div class="container mx-auto max-w-md" style="padding-top: 30%;">
-        <div class="max-w-sm mx-auto md:max-w-lg">
-            <div class="w-full">
-                <div class="bg-white h-64 py-3 rounded text-center">
-                      <h1 class="text-2xl font-bold">OTP Verification</h1>
-                      <div class="flex flex-col mt-4">
-                          <span>Enter the OTP you received at</span>
-                          <span id="email-otp" class="font-bold">+91 ******876</span>
-                      </div>
+    </div>
+    <div id="otpUI" class="flex justify-center items-center min-h-[40vh] mx-auto max-w-md" style="display: none;">
+        <div class="container mx-auto max-w-md" style="padding-top: 30%;">
+            <div class="max-w-sm mx-auto md:max-w-lg">
+                <div class="w-full">
+                    <div class="bg-white h-64 py-3 rounded text-center">
+                        <h1 class="text-2xl font-bold">OTP Verification</h1>
+                        <div class="flex flex-col mt-4">
+                            <span>Enter the OTP you received at</span>
+                            <span id="email-otp" class="font-bold">+91 ******876</span>
+                        </div>
                         <div id="otp" class="flex flex-row justify-center text-center px-2 mt-5">
-                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="first" maxlength="1" /> 
-                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="second" maxlength="1" /> 
-                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="third" maxlength="1" /> 
+                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="first" maxlength="1" />
+                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="second" maxlength="1" />
+                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="third" maxlength="1" />
                             <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="fourth" maxlength="1" />
-                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="fifth" maxlength="1" /> 
+                            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="fifth" maxlength="1" />
                             <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" name="" id="sixth" maxlength="1" />
                         </div>
-                      <div class="flex justify-center text-center mt-5">    
-                          <a id="resend-otp" class="flex items-center text-blue-700 hover:text-blue-900 cursor-pointer"><span class="font-bold">Resend OTP</span><i class='bx bx-caret-right ml-1'></i></a>
-                      </div>
+                        <div class="flex justify-center text-center mt-5">
+                            <a id="resend-otp" class="flex items-center text-blue-700 hover:text-blue-900 cursor-pointer"><span class="font-bold">Resend OTP</span><i class='bx bx-caret-right ml-1'></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-   
+
 
     <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -168,7 +219,8 @@
             $('#overlay').fadeToggle();
             $('#loginUI').fadeToggle();
         }
-        function toggleOTP(){
+
+        function toggleOTP() {
             $('#loginUI').fadeToggle();
             $('#otpUI').fadeToggle();
             $('#first').focus();
@@ -181,16 +233,21 @@
         $('#toggleButton').click(function() {
             toggleUI();
         });
+        $('#toggleButton2').click(function() {
+            toggleUI();
+        });
         $('#verification').click(function() {
             toggleOTP();
         });
-        function emptyField(){
+
+        function emptyField() {
             const emailInput = document.getElementById('email');
             emailInput.value = ''; // Set the value to empty
 
             const passwordInput = document.getElementById('password');
             passwordInput.value = ''; // Set the value to empty
         }
+
         function censorEmail(email) {
             // Split the email address into local part and domain part
             var parts = email.split('@');
@@ -206,7 +263,8 @@
             // Return the censored email address
             return censoredLocalPart + '@' + domainPart;
         }
-        function getEmailFromServer(){
+
+        function getEmailFromServer() {
             $.ajax({
                 url: '../src/controllers/getDataEmail.php', // URL to send the GET request to
                 type: 'GET',
@@ -223,7 +281,9 @@
         $('form').on('submit', function(e) {
             e.preventDefault(); // Prevent the form from submitting normally
             var formData = $(this).serializeArray();
-            formData.push({"type":"admin"});
+            formData.push({
+                "type": "admin"
+            });
             $.ajax({
                 url: '../src/controllers/loginController.php', // The URL to send the data to (same as the form's action attribute)
                 type: 'POST', // The HTTP method to use for the request
@@ -247,23 +307,23 @@
                     //console.error('Error:', errorMessage);
 
                     // Jika ingin menampilkan pesan kesalahan yang dikirim oleh server (jika ada)
-                    
-                    if(jqXHR.responseText){
+
+                    if (jqXHR.responseText) {
                         console.error(jqXHR.responseText);
                     }
                     var errorMessage = JSON.parse(jqXHR.responseText);
-                    if(jqXHR.status == 400){  
+                    if (jqXHR.status == 400) {
                         // Create the error message element
                         var errorMessageCss = $('<div id="errMessage" class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded relative" role="alert">' +
-                                            '<span class="block sm:inline">' + errorMessage.message + '</span>' +
-                                            '</div>');
-                                        
+                            '<span class="block sm:inline">' + errorMessage.message + '</span>' +
+                            '</div>');
+
                         // Append the error message element to the form
-                        if(!$('#errMessage').is(':Visible')){
+                        if (!$('#errMessage').is(':Visible')) {
                             $('form').prepend(errorMessageCss);
                             // Hide the error message after a delay (e.g., 5 seconds)
                             setTimeout(function() {
-                                $('#errMessage').fadeOut('slow', function(){
+                                $('#errMessage').fadeOut('slow', function() {
                                     $('#errMessage').remove();
                                     errorMessageCss = null;
                                 });
@@ -281,7 +341,9 @@
             $.ajax({
                 url: '../src/controllers/otpController.php', // URL to verify OTP on the server side (same as the current script)
                 type: 'POST',
-                data: JSON.stringify({ otp: otp }), // Send the OTP to the server
+                data: JSON.stringify({
+                    otp: otp
+                }), // Send the OTP to the server
                 //dataType: 'json',
                 contentType: 'application/json',
                 success: function(response) {
@@ -301,7 +363,7 @@
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     //console.error('Error:', errorThrown);
-                    if(jqXHR.responseText){
+                    if (jqXHR.responseText) {
                         console.error(jqXHR.responseText);
                     }
                     // Display error message to the user
@@ -311,12 +373,13 @@
                     console.error('Error:', errorMessage);
 
                     // Jika ingin menampilkan pesan kesalahan yang dikirim oleh server (jika ada)
-                    if(jqXHR.responseText){
+                    if (jqXHR.responseText) {
                         console.error('Server Error:', jqXHR.responseText);
                     }
                 }
             });
         }
+
         function resendOTP() {
             // Send entered OTP to the server for verification
             $.ajax({
@@ -328,7 +391,7 @@
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     //console.error('Error:', errorThrown);
-                    if(jqXHR.responseText){
+                    if (jqXHR.responseText) {
                         console.error(jqXHR.responseText);
                     }
                     // Display error message to the user
@@ -338,7 +401,7 @@
                     console.error('Error:', errorMessage);
 
                     // Jika ingin menampilkan pesan kesalahan yang dikirim oleh server (jika ada)
-                    if(jqXHR.responseText){
+                    if (jqXHR.responseText) {
                         console.error('Server Error:', jqXHR.responseText);
                     }
                 }
@@ -353,19 +416,19 @@
                 verifyOTP(otp);
             }
         });
-        $('#first').on('input', function(){
+        $('#first').on('input', function() {
             $('#second').focus();
         })
-        $('#second').on('input', function(){
+        $('#second').on('input', function() {
             $('#third').focus();
         })
-        $('#third').on('input', function(){
+        $('#third').on('input', function() {
             $('#fourth').focus();
         })
-        $('#fourth').on('input', function(){
+        $('#fourth').on('input', function() {
             $('#fifth').focus();
         })
-        $('#fifth').on('input', function(){
+        $('#fifth').on('input', function() {
             $('#sixth').focus();
         })
         $('#resend-otp').on('click', function() {
@@ -373,7 +436,7 @@
             // For example, call a function to resend OTP via AJAX
             resendOTP();
         });
-        
     </script>
 </body>
+
 </html>
