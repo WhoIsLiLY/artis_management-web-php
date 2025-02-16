@@ -5,7 +5,7 @@ A fully functional web application that manages artist data and schedules, with 
 ## Key Features
 
 - **Role-Based Access Control**: Admin, Manager, and Artist roles with specific permissions.
-- **Secure Authentication**: User credentials are encrypted using **Sodium** and hashed with **SHA** for maximum security.
+- **Secure Authentication**: User credentials are encrypted using **Sodium** and hashed with **SHA** and stored in form of token for maximum security.
 - **OTP Login**: Login is secured with a one-time password (OTP), which is also encrypted to protect from misuse.
 - **Data Management**: Full **CRUD** (Create, Read, Update, Delete) functionality for both artists and managers' data.
 - **Interactive Frontend**: Utilizes **jQuery AJAX** for a seamless, dynamic user experience.
@@ -83,9 +83,9 @@ A fully functional web application that manages artist data and schedules, with 
 7. **Access the Application**:
     Open the following URL in your browser, depending on the user type:
     ```
-    /public/index.html?type=artist
-    /public/index.html?type=manager
-    /public/index.html?type=admin
+    http://localhost:3000/public/index.html?type=artist
+    http://localhost:3000/public/index.html?type=manager
+    http://localhost:3000/public/index.html?type=admin
     ```
 
 ## Project Purpose
