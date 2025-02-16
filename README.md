@@ -28,13 +28,28 @@ A fully functional web application that manages artist data and schedules, with 
 ## Screenshots
 
 ### Login Page (Tailwind CSS)
-![Login Page](path_to_login_page_screenshot)
+![Login Page](docs/landingPage.png)
 
-### Main Dashboard (Bootstrap)
-![Main Dashboard](path_to_dashboard_screenshot)
+### Main Dashboard for Admin
+![Main Dashboard](docs/mainAdmin.png)
 
-### Artist Management Interface
-![Artist Management](path_to_artist_management_screenshot)
+### Artist Management Interface for Admin
+![Artist Management](docs/admin1.png)
+![Artist Management](docs/admin2.png)
+
+### Main Dashboard for Manager
+![Main Dashboard](docs/mainManager.png)
+
+### Artist Management Interface for Manager
+![Artist Management](docs/manager1.png)
+![Artist Management](docs/manager2.png)
+
+### Main Dashboard for Member
+![Main Dashboard](docs/mainMember.png)
+
+### Artist Management Interface for Member
+![Artist Management](docs/member1.png)
+![Artist Management](docs/member2.png)
 
 ## Installation
 
