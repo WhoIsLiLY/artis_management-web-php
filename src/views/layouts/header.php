@@ -50,7 +50,7 @@ if (isset($_COOKIE["token"])) {
             <?php echo "<a class='nav-link fw-semibold text-white md:text-black' href='/src/views/$role/workspace.php'>Workspace</a>"; ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-semibold text-white md:text-black" href="#">About Us</a>
+            <a class="nav-link fw-semibold text-white md:text-black" href="/src/views/about.php">About Us</a>
           </li>
         </ul>
         <span class="navbar-text fw-bolder">

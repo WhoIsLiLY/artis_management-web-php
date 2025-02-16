@@ -34,18 +34,26 @@ A fully functional web application that manages artist data and schedules, with 
 ![Main Dashboard](docs/mainAdmin.png)
 
 ### Artist Management Interface for Admin
+#### Schedule Management
 ![Schedule Management](docs/admin1.png)
+#### Manager Management
 ![Manager Management](docs/admin2.png)
 
 ### Main Dashboard for Manager
 ![Main Dashboard](docs/mainManager.png)
 
 ### Artist Management Interface for Manager
+#### Artist Management
 ![Artist Management](docs/manager1.png)
+#### Contracts Management
 ![Contracts Management](docs/manager2.png)
+#### Contact List
 ![Contact List](docs/manager3.png)
+#### Printed Contract PDF
 ![Printed Contract PDF](docs/manager4.png)
+#### Schedule Management
 ![Schedule Management](docs/manager5.png)
+#### Schedule Assignment
 ![Schedule Assignment](docs/manager6.png)
 
 ### Main Dashboard for Member

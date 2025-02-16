@@ -12,7 +12,6 @@ session_start();
 
 <!--HEADER-->
 <?php require_once __DIR__ . "\\..\\layouts\\header.php"?>
-<?php require_once __DIR__ . "\\..\\layouts\\sidebar-artis.php"?>
 <!-- main-content -->
   <div class="col-lg-10 pt-12">
   <h1 class="text-center"><?php echo $userController->getArtisNameById($middleware->getIdFromToken($_COOKIE["token"]));?> <br>Schedule</h1>
@@ -20,7 +19,7 @@ session_start();
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>EventName</th> 
+          <th>Event Name</th> 
           <th>Date</th>
           <th>Location</th>
           <th>Type</th>
