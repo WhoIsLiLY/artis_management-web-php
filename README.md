@@ -102,6 +102,9 @@ A fully functional web application that manages artist data and schedules, with 
     http://localhost:3000/public/index.php?type=manager
     http://localhost:3000/public/index.php?type=admin
     ```
+    
+8. **Login Credencials**
+   For login information, you can find it in .sql file. In there, change the email for member, manager, and admin with your email in liking (Because you will need your personal email for OTP authentication). The password will always be "yourpassword". You cannot inject this directly because it's encrypted and can be only opened using the key in .sql file.
 
 ## Project Purpose
 
