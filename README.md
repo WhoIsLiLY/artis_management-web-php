@@ -83,9 +83,9 @@ A fully functional web application that manages artist data and schedules, with 
 7. **Access the Application**:
     Open the following URL in your browser, depending on the user type:
     ```
-    http://localhost:3000/public/index.html?type=artist
-    http://localhost:3000/public/index.html?type=manager
-    http://localhost:3000/public/index.html?type=admin
+    http://localhost:3000/public/index.php?type=artist
+    http://localhost:3000/public/index.php?type=manager
+    http://localhost:3000/public/index.php?type=admin
     ```
 
 ## Project Purpose
