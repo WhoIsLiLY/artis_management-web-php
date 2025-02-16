@@ -28,7 +28,12 @@ A fully functional web application that manages artist data and schedules, with 
 ## Screenshots
 
 ### Login Page (Tailwind CSS)
-![Login Page](docs/landingPage.png)
+#### Landing Page
+![Landing Page](docs/landingPage.png)
+#### Login Popup
+![Login Page](docs/login.png)
+#### OTP Popup
+![Login Page](docs/otp.png)
 
 ### Main Dashboard for Admin
 ![Main Dashboard](docs/mainAdmin.png)
